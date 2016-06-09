@@ -22,6 +22,8 @@ public class Ctrl_Msg {
     public static String MsgVagaEmUso = "Lamentamos em informar, mas está vaga já esta em uso. :(";
     public static String MsgJaExiste = "Este registro já existe.";
     public static String MsgSelecioneCliente = "Por favor selecione um cliente.";
+    public static String MsgClienteInexistente = "Cliente inexistente.";
+
 
      
     public static boolean  Questiona(String msg){

@@ -94,12 +94,38 @@ public class Model_Cliente {
 
         try 
         {
-           sqlString ="SELECT CNH,ID FROM CLIENTE WHERE (ID_PESSOA="+Id_Pessoa+")";
+           sqlString ="SELECT  ID, CNH, ID_PESSOA FROM CLIENTE WHERE (ID_PESSOA="+Id_Pessoa+")";
            rs = Model_Banco.BuscaRegistro(sqlString);
            if (rs.next()) {   
-                Cliente.setCnh(rs.getString(1));
-                Cliente.setId(rs.getString(2));
-    
+                Cliente.setId(rs.getString(1));
+                Cliente.setCnh(rs.getString(2));
+                Cliente.setIdPessoa(rs.getString(3)); 
+           }
+           
+           
+        } 
+        catch (Exception e)
+        {
+             Cliente.setId("false");
+             return Cliente;
+        }
+        
+        
+        return Cliente;
+    }
+     
+     public static Ctrl_Cliente  BuscaCliente (String Id_Pessoa)
+    {
+        Ctrl_Cliente Cliente = new Ctrl_Cliente();
+
+        try 
+        {
+           sqlString ="SELECT  ID, CNH, ID_PESSOA FROM CLIENTE WHERE (ID_PESSOA="+Id_Pessoa+")";
+           rs = Model_Banco.BuscaRegistro(sqlString);
+           if (rs.next()) {   
+                Cliente.setId(rs.getString(1));
+                Cliente.setCnh(rs.getString(2));
+                Cliente.setIdPessoa(rs.getString(3)); 
            }
            
            

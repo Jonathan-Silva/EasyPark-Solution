@@ -79,4 +79,31 @@ public class Model_Pessoa {
         }
         return Pessoa;
     }
+    
+     public static Ctrl_Pessoa  VerificarFiltro(String Cpf, String Tipo)
+    {
+        Ctrl_Pessoa Pessoa = new Ctrl_Pessoa();
+        ResultSet rs = null;
+        String sqlString ="select * from PESSOA where (CPF='" + Cpf + "' and Tipo='"+Tipo+"')";
+        try 
+        {
+            rs = Model_Banco.BuscaRegistro(sqlString);
+            if (rs.next()) 
+            {
+                Pessoa.setId(rs.getString(1));
+                Pessoa.setCpf(rs.getString(2));
+                Pessoa.setNome(rs.getString(3));
+                Pessoa.setFixo(rs.getString(4));
+                Pessoa.setCelular(rs.getString(5));
+                Pessoa.setEmail(rs.getString(6));
+                Pessoa.setNumero(rs.getString(7));
+                Pessoa.setCep(rs.getString(8));
+            }
+        } 
+        catch (Exception e) 
+        {
+            return null;
+        }
+        return Pessoa;
+    }
 }

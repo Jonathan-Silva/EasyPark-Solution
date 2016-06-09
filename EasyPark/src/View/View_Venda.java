@@ -5,15 +5,18 @@
  */
 package View;
 
+import Controller.Ctrl_Cliente;
 import Controller.Ctrl_Msg;
 import Controller.Ctrl_Pessoa;
 import Controller.Ctrl_Vaga;
 import Model.Model_Banco;
+import Model.Model_Cliente;
 import Model.Model_Pessoa;
 import Model.Model_Vaga;
 import java.awt.Dimension;
 import java.awt.Label;
 import java.awt.Toolkit;
+import java.awt.event.FocusAdapter;
 import javax.swing.text.MaskFormatter;
 
 
@@ -24,6 +27,7 @@ import javax.swing.text.MaskFormatter;
 public class View_Venda extends javax.swing.JFrame {
     
     private static Ctrl_Pessoa Pessoa = new Ctrl_Pessoa();
+    private static Ctrl_Cliente Cliente = new Ctrl_Cliente();
     private  String txtLocalizacao = "";
     private int indiceCombo =0;
     public View_Venda() {
@@ -428,15 +432,27 @@ public class View_Venda extends javax.swing.JFrame {
 
     private void txtCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusLost
         Pessoa.setId(null);
-        Pessoa = Model_Pessoa.Verificar(txtCPF.getText());
-
+        Pessoa = Model_Pessoa.VerificarFiltro(txtCPF.getText(), "C");
+        
         if (Pessoa.getId()!=null)
         {
-            txtNome.setText(Pessoa.getNome());
+            Cliente.setId(null);
+            Cliente = Model_Cliente.BuscaCliente(Pessoa.getId());
+            if(Cliente.getId()!=null){              
+                Cliente.setNome(Pessoa.getNome());
+                txtNome.setText(Cliente.getNome());
+            }
             
         }
+        else{
+            Ctrl_Msg.Informa(Ctrl_Msg.MsgClienteInexistente);
+            txtCPF.setText("");
+            txtCPF.requestFocus();
+        }
     }//GEN-LAST:event_txtCPFFocusLost
-
+    private void AtribuirPessoaCliente(){
+        
+    }
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
 
     }//GEN-LAST:event_txtCodActionPerformed
