@@ -23,6 +23,9 @@ public class Ctrl_Msg {
     public static String MsgJaExiste = "Este registro já existe.";
     public static String MsgSelecioneCliente = "Por favor selecione um cliente.";
     public static String MsgClienteInexistente = "Cliente inexistente.";
+    public static String MsgGerarRelatorio = "Deseja gerar relatório com os dados informados ? ";
+    public static String MsgRelatorioSemDados = "Não foi encontrado nenhuma venda com o status informado, dentre este intervalo de tempo!";
+    public static String MsgDataInvalida = "Datas informadas inválidas por favor digite novamente";
 
 
      

@@ -117,6 +117,21 @@ public static void Open(){
         return rs;
     }
 
+     public static ResultSet BuscaVendas(String dataInicio, String dataFim, String status) throws SQLException
+    {
+        ResultSet rs = null;
+        Statement statement = conexao.createStatement();
+        String sqlstring = "select * from Venda where DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "' AND STATUS = '" + status + "'";
+        
+        try {
+            rs = statement.executeQuery(sqlstring);
+        } catch (Exception e) {
+            
+        }
+        
+        return rs;
+    }
+
 }
     
 

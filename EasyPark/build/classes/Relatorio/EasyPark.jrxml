@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-06-02T23:48:49 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EasyPark" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bee26e02-5861-4da1-8bec-78d7d16828a0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Banco.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="DataInicio" class="java.sql.Date"/>
+	<parameter name="DataFim" class="java.sql.Date"/>
+	<parameter name="Status" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *
+ from Venda
+ where DHORA_INICIAL BETWEEN  $P{DataInicio} AND $P{DataFim} AND STATUS = $P{Status}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Long"/>
+	<field name="DHORA_INICIAL" class="java.sql.Timestamp"/>
+	<field name="DHORA_FINAL" class="java.sql.Timestamp"/>
+	<field name="ID_VAGA" class="java.lang.Long"/>
+	<field name="ID_MOTORISTA" class="java.lang.Long"/>
+	<field name="ID_VEICULO" class="java.lang.Long"/>
+	<field name="STATUS" class="java.lang.Boolean"/>
+	<field name="PRECO" class="java.math.BigDecimal"/>
+	<field name="DHORA" class="java.sql.Timestamp"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="842" height="92" backcolor="#006699" uuid="2e653622-bc4a-4111-8e23-aff6f69d3c5f"/>
+				<staticText>
+					<reportElement x="14" y="10" width="330" height="72" forecolor="#FFFFFF" uuid="518c88eb-6326-4d08-93b7-5a2987f67217"/>
+					<textElement>
+						<font size="50" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EasyPark]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="360" y="50" width="380" height="40" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="465c4d92-4524-4a87-9fed-e99d43653cf6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório de Vendas]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24">
+			<line>
+				<reportElement x="-20" y="23" width="840" height="1" forecolor="#666666" uuid="f230c776-ade8-43d2-aefc-db5f881adc1f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aff6f587-7d0c-4e21-9c0d-334231481dff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="80" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b0f2061c-f726-4900-ac17-173359db856d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Início]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fe5af579-878f-4a14-a89d-c1701c3c347c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Fim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="0" width="70" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="99f5ba41-35a6-4f26-84d9-ee7b5a23fb6c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vaga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="350" y="0" width="70" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9fe3b97f-22c9-4aba-9d17-50d09852b924"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motorista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="419" y="0" width="61" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="58e7cb6c-9abb-4c84-bb77-6a9fec845247"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Veiculo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f12e8713-9921-4f1d-a2e4-5834de1afb8e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="580" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ef0b9648-a79e-4e98-93a9-e343eec0cad9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="680" y="0" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="487372fe-fda3-42dd-a049-5b943e47dfad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Data Compra]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="21" width="800" height="1" uuid="f6413a2a-03e2-43e0-801d-417fdbaf6a2c"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="0" width="80" height="20" uuid="9e6895b9-2c21-458d-a64f-1ec11a83cb11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="0" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="80" y="1" width="100" height="20" uuid="c9c9761b-4e96-4d14-805e-6783f50a1845"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="10" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DHORA_INICIAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="180" y="0" width="100" height="20" uuid="d4ee4bc6-8752-4ae4-9be7-c33c93693136"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="10" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DHORA_FINAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="281" y="0" width="69" height="20" uuid="64c447f6-e00d-4f35-8c3a-373ea80892c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="10" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_VAGA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="350" y="1" width="69" height="20" uuid="c1aa33f0-0d0c-46c1-8742-02c887753baa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="10" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_MOTORISTA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="420" y="0" width="59" height="20" uuid="67052cb5-60ad-4a38-9f89-4a33fb6cfea2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="10" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_VEICULO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="480" y="0" width="100" height="20" uuid="83ce1eda-576f-4c03-b221-327bd19e6860"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="30" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="¤#,##0.###;¤(-#,##0.###)" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="580" y="1" width="100" height="20" uuid="d7d8af40-2754-43d3-b7b3-ae7ff020d424"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="15" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRECO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="680" y="-1" width="120" height="20" uuid="5effb76a-c87b-4f29-9a4b-ae2d9ea2c98c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph lineSpacing="Double" leftIndent="20" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DHORA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="760" height="13" backcolor="#E6E6E6" uuid="ac0f224e-6576-4864-a5aa-2204e084245e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="760" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b2405ecf-ffa5-4e18-a3cd-dc2f36ac3d55"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="bde8f352-2f6e-4075-bb89-9806f6562128"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
