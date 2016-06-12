@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Model_Veiculo {
-    private static ResultSet rs = null;
+    private static  ResultSet rs = null;
     private static  String sqlString ="";
     public static void Atualizar()
     {

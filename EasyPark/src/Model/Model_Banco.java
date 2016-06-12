@@ -121,7 +121,7 @@ public static void Open(){
     {
         ResultSet rs = null;
         Statement statement = conexao.createStatement();
-        String sqlstring = "select * from Venda where DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "' AND STATUS = '" + status + "'";
+        String sqlstring = "SELECT ID, DHORA_INICIAL, DHORA_FINAL, ID_VAGA, ID_MOTORISTA, ID_VEICULO, STATUS, PRECO FROM  VENDA WHERE DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "'"+ "' AND '" + "STATUS = '" +status +"'";
         
         try {
             rs = statement.executeQuery(sqlstring);

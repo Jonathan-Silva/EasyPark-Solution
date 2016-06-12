@@ -305,7 +305,7 @@ public class View_Relatorio extends javax.swing.JFrame {
                         // Diretório onde fica os relatórios
                         File arquivo = new File(home + "/Desktop/Relatorios/");
                         // Define o Design do Relatório Jasper
-                        JasperDesign desenho = JRXmlLoader.load("src\\Relatorio\\Easypark.jrxml");
+                        JasperDesign desenho = JRXmlLoader.load("src\\Relatorio\\EasyPark.jrxml");
                         // Le o relatório Jasper
                         JasperReport relatorio = JasperCompileManager.compileReport(desenho);
                         // Cria um Jasper Data Source

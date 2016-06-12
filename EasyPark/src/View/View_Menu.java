@@ -8,8 +8,6 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
-import br.com.daruma.jna.UTIL;
-import br.com.daruma.jna.ECF;
 
 
 
