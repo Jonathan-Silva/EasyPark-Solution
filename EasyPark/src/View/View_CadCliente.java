@@ -900,6 +900,8 @@ public class View_CadCliente extends javax.swing.JFrame {
                 txtRua.setText(Endereco.getLogradouro());
                 cbCidade.addItem(Endereco.getCidade());
                 cbUF.addItem(Endereco.getUf());
+                nmrNumero.requestFocus(true);
+                nmrNumero.requestFocus();
             }
             
        

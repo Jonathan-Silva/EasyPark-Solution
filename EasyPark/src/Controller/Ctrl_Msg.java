@@ -26,6 +26,7 @@ public class Ctrl_Msg {
     public static String MsgGerarRelatorio = "Deseja gerar relatório com os dados informados ? ";
     public static String MsgRelatorioSemDados = "Não foi encontrado nenhuma venda com o status informado, dentre este intervalo de tempo!";
     public static String MsgDataInvalida = "Datas informadas inválidas por favor digite novamente";
+    public static String MsgConcluirVenda = "Deseja concuir esse venda ? ";
 
 
      

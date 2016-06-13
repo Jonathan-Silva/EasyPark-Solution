@@ -48,7 +48,7 @@ public class Model_Vaga {
     
     public static Boolean Deletar(String Cod) throws SQLException
     {
-        sqlString = "delete from PESSOA where (ID="+Cod+")";
+        sqlString = "delete from VAGA where (ID="+Cod+")";
         return Model_Banco.Deletar(sqlString);
     }    
     
@@ -59,15 +59,16 @@ public class Model_Vaga {
        
         Ctrl_Vaga nhs = new Ctrl_Vaga();
         
-        String sqlString ="SELECT LOCALIZACAO, STATUS FROM VAGA";
+        String sqlString ="SELECT ID, LOCALIZACAO, STATUS FROM VAGA";
         try 
         {
             rs = Model_Banco.BuscaRegistro(sqlString);
             while (rs.next()) 
             {
                 Ctrl_Vaga Vaga = new Ctrl_Vaga();
-                Vaga.setLocalizacao(rs.getString(1));
-                Vaga.setStatus(rs.getString(2));
+                Vaga.setId(rs.getString(1));
+                Vaga.setLocalizacao(rs.getString(2));
+                Vaga.setStatus(rs.getString(3));
                 Vagas.add(Vaga);
             }
         } 
@@ -76,5 +77,12 @@ public class Model_Vaga {
             return null;
         }
         return Vagas;
+    }
+
+    public static void SetStatusVaga (String IdVaga, String Status) throws SQLException{
+        
+        sqlString = "UPDATE VAGA SET STATUS ="+ Status +" WHERE  (ID ="+ IdVaga +")"; 
+        boolean r = Model_Banco.Salvar(sqlString);
+        
     }
 }

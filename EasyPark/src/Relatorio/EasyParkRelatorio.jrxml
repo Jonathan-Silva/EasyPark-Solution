@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-06-12T23:33:41 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EasyParkRelatorio" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d99e7c49-d717-48bb-86a4-da0efad0ad42">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Banco.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="DataInicio" class="java.sql.Date"/>
+	<parameter name="DataFim" class="java.sql.Date"/>
+	<parameter name="Status" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM  VENDA where DHORA_INICIAL BETWEEN  $P{DataInicio} AND $P{DataFim} AND STATUS = $P{Status}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Long"/>
+	<field name="DHORA_INICIAL" class="java.sql.Timestamp"/>
+	<field name="DHORA_FINAL" class="java.sql.Timestamp"/>
+	<field name="ID_VAGA" class="java.lang.Long"/>
+	<field name="ID_MOTORISTA" class="java.lang.Long"/>
+	<field name="ID_VEICULO" class="java.lang.Long"/>
+	<field name="STATUS" class="java.lang.Boolean"/>
+	<field name="PRECO" class="java.math.BigDecimal"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="842" height="92" backcolor="#006699" uuid="7c5d6757-4a55-439b-9ee8-cc4ad68fb218"/>
+				<staticText>
+					<reportElement mode="Transparent" x="231" y="30" width="380" height="40" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="8649c95b-95df-4e96-9770-7cea32f5985e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI Historic" size="26" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório de Vendas]]></text>
+				</staticText>
+				<image>
+					<reportElement x="741" y="10" width="81" height="70" uuid="16052dbb-f130-4472-aedd-05226261e955"/>
+					<imageExpression><![CDATA["http://i.imgur.com/EpmiztV.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement mode="Transparent" x="26" y="22" width="190" height="40" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="ae995a8a-ce6a-4c38-9297-9ba1dd61533a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI Historic" size="30" isBold="false"/>
+					</textElement>
+					<text><![CDATA[EasyPark]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="842" height="1" forecolor="#666666" uuid="a1827232-f30f-46ae-be77-b20cc306a373"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a351d35e-2d5e-4e37-8eac-1313e8c15bea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="0" width="180" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f2b25a88-1538-4bdd-9876-abd356bd6244">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA INICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="251" y="0" width="178" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e9a6044f-dcb7-4cbb-b960-a18ec59c1341">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA FINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="430" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1ecc420e-a7b0-44c1-a5cf-a00ea59696cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VAGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fd1a470e-b757-40e6-94da-e9cc4b9a3864"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOTORISTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="593" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="33ba7b9a-e101-4ebb-ade7-96543f533c7c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VEICULO
+VEICULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="663" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="23e2833d-890a-4dea-94bb-0186a87e84dc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="733" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="755daeec-e043-429d-9478-c899e04362a9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREÇO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="802" height="1" uuid="2887ebb2-9836-4822-b73c-487beccb92c8"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="69" height="20" uuid="dd226cf8-c623-4c5c-a5db-a7d494dbb92e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="70" y="0" width="180" height="20" uuid="1e93c0c9-1382-4492-968f-153a494bc0d3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DHORA_INICIAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="251" y="0" width="178" height="20" uuid="b04b2ac4-8e87-4305-ba99-6a82c200351a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DHORA_FINAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="430" y="0" width="69" height="20" uuid="c3d30643-2486-414a-b89a-42f6ae9b738a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_VAGA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="500" y="0" width="92" height="20" uuid="f089d60e-de0c-4d1e-9f45-2b37071d0c50"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_MOTORISTA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="593" y="0" width="69" height="20" uuid="2134e388-a784-42fb-b5da-c1701e4dd896"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_VEICULO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="663" y="0" width="69" height="20" uuid="d1815596-5a0b-476d-be3d-90656f56de58"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Historic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="¤#,##0.###;¤(#,##0.###-)">
+				<reportElement x="733" y="0" width="69" height="20" uuid="e8e2f69f-5433-4e17-bbfb-59b0aca4c5bc"/>
+				<textElement textAlignment="Left">
+					<font fontName="Segoe UI Historic" size="12"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRECO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="762" height="13" backcolor="#E6E6E6" uuid="fdc16835-2f54-4bb1-9383-f91af4ae3b21"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="762" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="43fd4557-ffe6-42f1-bf06-15200795ffec"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="234303e4-ca72-4968-8884-91fc74ccfc90"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,13 +1,16 @@
 
 package View;
 
+import Controller.Ctrl_Email;
 import Controller.Ctrl_Impressora;
 import Controller.Ctrl_Msg;
+import Controller.Ctrl_Venda;
 import Model.Model_Banco;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
+import java.util.GregorianCalendar;
 
 
 
@@ -45,7 +48,6 @@ public class View_Menu extends javax.swing.JFrame {
         mniConCliente = new javax.swing.JMenuItem();
         mnControle = new javax.swing.JMenu();
         mniVenda = new javax.swing.JMenuItem();
-        mniFinalizacao = new javax.swing.JMenuItem();
         mniCancelamento = new javax.swing.JMenuItem();
         mnRelatorios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -180,8 +182,9 @@ public class View_Menu extends javax.swing.JFrame {
         mnControle.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
 
         mniVenda.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        mniVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/addwd1.png"))); // NOI18N
         mniVenda.setMnemonic('v');
-        mniVenda.setText("Venda");
+        mniVenda.setText("Venda - Entrada");
         mniVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniVendaActionPerformed(evt);
@@ -189,20 +192,15 @@ public class View_Menu extends javax.swing.JFrame {
         });
         mnControle.add(mniVenda);
 
-        mniFinalizacao.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
-        mniFinalizacao.setMnemonic('f');
-        mniFinalizacao.setText("Finalização");
-        mniFinalizacao.addActionListener(new java.awt.event.ActionListener() {
+        mniCancelamento.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        mniCancelamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/222.png"))); // NOI18N
+        mniCancelamento.setMnemonic('c');
+        mniCancelamento.setText("Venda - Saida");
+        mniCancelamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mniFinalizacaoActionPerformed(evt);
+                mniCancelamentoActionPerformed(evt);
             }
         });
-        mnControle.add(mniFinalizacao);
-
-        mniCancelamento.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
-        mniCancelamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/EasyCancelamento.png"))); // NOI18N
-        mniCancelamento.setMnemonic('c');
-        mniCancelamento.setText("Cancelamento");
         mnControle.add(mniCancelamento);
 
         mbMenu.add(mnControle);
@@ -212,6 +210,7 @@ public class View_Menu extends javax.swing.JFrame {
         mnRelatorios.setText("Relatórios");
         mnRelatorios.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/ordem2.png"))); // NOI18N
         jMenuItem1.setText("Venda");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,17 +249,17 @@ public class View_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(391, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(649, Short.MAX_VALUE))
+                .addGap(299, 299, 299))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(112, 112, 112)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,10 +301,6 @@ public class View_Menu extends javax.swing.JFrame {
         frmConCliente.setVisible(true);
     }//GEN-LAST:event_mniConClienteActionPerformed
 
-    private void mniFinalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniFinalizacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mniFinalizacaoActionPerformed
-
     private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
         
     }//GEN-LAST:event_mnSairActionPerformed
@@ -334,16 +329,14 @@ public class View_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        boolean r=false;
-        if (r==false) {
-            r= Ctrl_Impressora.CarregarDarumaFrameWork();
-        }
-        if (r==true) {
-            Ctrl_Impressora.ImprimirTexto("Jonathan <br /> Jonathan");
-        }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void mniCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCancelamentoActionPerformed
+        View_VendaFinalizar VendaFinalizar = new View_VendaFinalizar();
+        VendaFinalizar.setVisible(true);
+    }//GEN-LAST:event_mniCancelamentoActionPerformed
 
    
     public static void main(String args[]) {
@@ -401,7 +394,6 @@ public class View_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mniConCliente;
     private javax.swing.JMenuItem mniConFuncionario;
     private javax.swing.JMenuItem mniConVaga;
-    private javax.swing.JMenuItem mniFinalizacao;
     private javax.swing.JMenuItem mniSair;
     private javax.swing.JMenuItem mniVenda;
     // End of variables declaration//GEN-END:variables

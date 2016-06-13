@@ -21,8 +21,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/View/View_Menu.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/View/View_CadEstacionamento.java</file>
             <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Controller/Ctrl_Impressora.java</file>
-            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Model/Model_Pessoa.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Model/Model_FilePrint.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Model/Model_Cliente.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Model/Model_Banco.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/View/View_Venda.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/Model/Model_Venda.java</file>
+            <file>file:/C:/Projetos/Solution/EasyPark-Solution/EasyPark/src/View/View_CadCliente.java</file>
         </group>
     </open-files>
 </project-private>

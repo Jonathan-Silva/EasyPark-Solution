@@ -5,6 +5,7 @@ import Controller.Ctrl_Endereco;
 import Controller.Ctrl_Estacionamento;
 import Controller.Ctrl_Msg;
 import Model.Model_Banco;
+import Model.Model_Endereco;
 import Model.Model_Estacionamento;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -662,7 +663,26 @@ public class View_CadEstacionamento extends javax.swing.JFrame {
     }
 
     private void BuscarEndereco() {
+        try 
+            {
+                Endereco.setLogradouro(null);
+                Endereco = Model_Endereco.BuscarEndereco(txtCEP.getText().replace("-", ""));
+                if (Endereco.getLogradouro()!=null)
+                {
+                    txtCEP.setText(Endereco.getCep());
+                    txtRua.setText(Endereco.getLogradouro());
+                    cbCidade.addItem(Endereco.getCidade());
+                    cbUF.addItem(Endereco.getUf());
+                    nmrNumero.requestFocus(true);
+                    nmrNumero.requestFocus();
+                }
 
+
+            } 
+            catch (Exception e) 
+            {
+
+            }
     }
     private void CentralizarTela() {
     

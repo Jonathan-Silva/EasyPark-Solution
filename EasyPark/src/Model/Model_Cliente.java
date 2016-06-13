@@ -120,7 +120,7 @@ public class Model_Cliente {
 
         try 
         {
-           sqlString ="SELECT  ID, CNH, ID_PESSOA FROM CLIENTE WHERE (ID_PESSOA="+Id_Pessoa+")";
+           sqlString ="SELECT * FROM CLIENTE WHERE (ID_PESSOA="+Id_Pessoa+")";
            rs = Model_Banco.BuscaRegistro(sqlString);
            if (rs.next()) {   
                 Cliente.setId(rs.getString(1));

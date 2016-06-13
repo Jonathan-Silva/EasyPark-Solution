@@ -294,7 +294,7 @@
   <IMPRESSORA>
    <ControleAutomatico>0</ControleAutomatico>
    <MarcaImpressora>0</MarcaImpressora>
-   <PortaComunicacao>COM1</PortaComunicacao>
+   <PortaComunicacao>COM4</PortaComunicacao>
    <TamanhoBobina>48</TamanhoBobina>
    <Velocidade>9600</Velocidade>
    <ConfAnterior>0</ConfAnterior>

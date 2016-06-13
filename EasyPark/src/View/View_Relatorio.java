@@ -19,12 +19,16 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.JExcelApiExporter;
+import net.sf.jasperreports.engine.export.JRRtfExporter;
+import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRPptxExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class View_Relatorio extends javax.swing.JFrame {
     
-    private static String status = "true";
+    private static String status = "0";
     private final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     
     public View_Relatorio() {
@@ -44,11 +48,6 @@ public class View_Relatorio extends javax.swing.JFrame {
         btnDeletar = new javax.swing.JButton();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        pnlFormato = new javax.swing.JPanel();
-        jRadioButtonPDF = new javax.swing.JRadioButton();
-        jRadioButtonXLS = new javax.swing.JRadioButton();
-        jRadioButtonHTML = new javax.swing.JRadioButton();
-        jRadioButtonXML = new javax.swing.JRadioButton();
         btnFechar = new javax.swing.JButton();
         btnGerar = new javax.swing.JButton();
         pnlFormato1 = new javax.swing.JPanel();
@@ -59,6 +58,17 @@ public class View_Relatorio extends javax.swing.JFrame {
         pnlFormato2 = new javax.swing.JPanel();
         jRadioButtomAberta = new javax.swing.JRadioButton();
         jRadioButtomEncerrada = new javax.swing.JRadioButton();
+        jRadioButtomEncerrada1 = new javax.swing.JRadioButton();
+        jRadioButtomEncerrada2 = new javax.swing.JRadioButton();
+        pnlFormato = new javax.swing.JPanel();
+        jRadioButtonPDF = new javax.swing.JRadioButton();
+        jRadioButtonXLS = new javax.swing.JRadioButton();
+        jRadioButtonHTML = new javax.swing.JRadioButton();
+        jRadioButtonXML = new javax.swing.JRadioButton();
+        jRadioButtonRTF = new javax.swing.JRadioButton();
+        jRadioButtonDOCX = new javax.swing.JRadioButton();
+        jRadioButtonPPTX = new javax.swing.JRadioButton();
+        jRadioButtonODT = new javax.swing.JRadioButton();
 
         btnDeletar.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/Easyexcluir.png"))); // NOI18N
@@ -71,57 +81,11 @@ public class View_Relatorio extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(723, 400));
 
-        pnlFormato.setBorder(javax.swing.BorderFactory.createTitledBorder("Formato"));
-        pnlFormato.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
-
-        buttonGroup1.add(jRadioButtonPDF);
-        jRadioButtonPDF.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButtonPDF.setSelected(true);
-        jRadioButtonPDF.setText("PDF");
-
-        buttonGroup1.add(jRadioButtonXLS);
-        jRadioButtonXLS.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButtonXLS.setText("XLS");
-
-        buttonGroup1.add(jRadioButtonHTML);
-        jRadioButtonHTML.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButtonHTML.setText("HTML");
-
-        buttonGroup1.add(jRadioButtonXML);
-        jRadioButtonXML.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButtonXML.setText("XML");
-
-        javax.swing.GroupLayout pnlFormatoLayout = new javax.swing.GroupLayout(pnlFormato);
-        pnlFormato.setLayout(pnlFormatoLayout);
-        pnlFormatoLayout.setHorizontalGroup(
-            pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFormatoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButtonPDF)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonHTML)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonXLS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonXML)
-                .addGap(21, 21, 21))
-        );
-        pnlFormatoLayout.setVerticalGroup(
-            pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFormatoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonHTML)
-                    .addComponent(jRadioButtonPDF)
-                    .addComponent(jRadioButtonXLS)
-                    .addComponent(jRadioButtonXML))
-                .addGap(13, 13, 13))
-        );
-
         btnFechar.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
         btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/Easyfechar.png"))); // NOI18N
         btnFechar.setText("Fechar");
         btnFechar.setToolTipText("Clique aqui para fechar");
+        btnFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFecharActionPerformed(evt);
@@ -132,6 +96,7 @@ public class View_Relatorio extends javax.swing.JFrame {
         btnGerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/Print2.png"))); // NOI18N
         btnGerar.setText("Gerar");
         btnGerar.setToolTipText("Clique aqui para fechar");
+        btnGerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerarActionPerformed(evt);
@@ -165,7 +130,7 @@ public class View_Relatorio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlFormato1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlFormato1Layout.setVerticalGroup(
@@ -179,9 +144,9 @@ public class View_Relatorio extends javax.swing.JFrame {
                 .addGroup(pnlFormato1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormato1Layout.createSequentialGroup()
                         .addComponent(lblNome1)
-                        .addGap(0, 4, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         pnlFormato2.setBorder(javax.swing.BorderFactory.createTitledBorder("Status"));
@@ -216,25 +181,134 @@ public class View_Relatorio extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButtomEncerrada1);
+        jRadioButtomEncerrada1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtomEncerrada1.setText("Anulada");
+        jRadioButtomEncerrada1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MudaStatus3(evt);
+            }
+        });
+        jRadioButtomEncerrada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtomEncerrada1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(jRadioButtomEncerrada2);
+        jRadioButtomEncerrada2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtomEncerrada2.setText("Todos");
+        jRadioButtomEncerrada2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MudaStatus4(evt);
+            }
+        });
+        jRadioButtomEncerrada2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtomEncerrada2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFormato2Layout = new javax.swing.GroupLayout(pnlFormato2);
         pnlFormato2.setLayout(pnlFormato2Layout);
         pnlFormato2Layout.setHorizontalGroup(
             pnlFormato2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFormato2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(40, 40, 40)
                 .addComponent(jRadioButtomAberta)
-                .addGap(34, 34, 34)
+                .addGap(18, 26, Short.MAX_VALUE)
                 .addComponent(jRadioButtomEncerrada)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jRadioButtomEncerrada1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jRadioButtomEncerrada2)
+                .addGap(26, 26, 26))
         );
         pnlFormato2Layout.setVerticalGroup(
             pnlFormato2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormato2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlFormato2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlFormato2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtomAberta)
                     .addComponent(jRadioButtomEncerrada)
-                    .addComponent(jRadioButtomAberta))
-                .addContainerGap())
+                    .addComponent(jRadioButtomEncerrada1)
+                    .addComponent(jRadioButtomEncerrada2))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        pnlFormato.setBorder(javax.swing.BorderFactory.createTitledBorder("Formato"));
+        pnlFormato.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+
+        buttonGroup1.add(jRadioButtonPDF);
+        jRadioButtonPDF.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonPDF.setSelected(true);
+        jRadioButtonPDF.setText("PDF");
+
+        buttonGroup1.add(jRadioButtonXLS);
+        jRadioButtonXLS.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonXLS.setText("XLS");
+
+        buttonGroup1.add(jRadioButtonHTML);
+        jRadioButtonHTML.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonHTML.setText("HTML");
+
+        buttonGroup1.add(jRadioButtonXML);
+        jRadioButtonXML.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonXML.setText("XML");
+
+        buttonGroup1.add(jRadioButtonRTF);
+        jRadioButtonRTF.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonRTF.setText("RTF");
+
+        buttonGroup1.add(jRadioButtonDOCX);
+        jRadioButtonDOCX.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonDOCX.setText("DOCX");
+
+        buttonGroup1.add(jRadioButtonPPTX);
+        jRadioButtonPPTX.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonPPTX.setText("PPT");
+
+        buttonGroup1.add(jRadioButtonODT);
+        jRadioButtonODT.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButtonODT.setText("ODT");
+
+        javax.swing.GroupLayout pnlFormatoLayout = new javax.swing.GroupLayout(pnlFormato);
+        pnlFormato.setLayout(pnlFormatoLayout);
+        pnlFormatoLayout.setHorizontalGroup(
+            pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormatoLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonPDF)
+                    .addComponent(jRadioButtonRTF))
+                .addGap(40, 40, 40)
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonDOCX)
+                    .addComponent(jRadioButtonHTML))
+                .addGap(0, 48, Short.MAX_VALUE)
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonXLS)
+                    .addComponent(jRadioButtonODT))
+                .addGap(34, 34, 34)
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonXML)
+                    .addComponent(jRadioButtonPPTX))
+                .addGap(40, 40, 40))
+        );
+        pnlFormatoLayout.setVerticalGroup(
+            pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormatoLayout.createSequentialGroup()
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonHTML)
+                    .addComponent(jRadioButtonPDF)
+                    .addComponent(jRadioButtonXLS)
+                    .addComponent(jRadioButtonXML))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(pnlFormatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonRTF)
+                    .addComponent(jRadioButtonDOCX)
+                    .addComponent(jRadioButtonODT)
+                    .addComponent(jRadioButtonPPTX)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,37 +318,35 @@ public class View_Relatorio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(540, Short.MAX_VALUE)
                         .addComponent(btnGerar)
                         .addGap(5, 5, 5)
                         .addComponent(btnFechar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(pnlFormato1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlFormato2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlFormato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlFormato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlFormato2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlFormato1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlFormato2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlFormato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
+                        .addComponent(pnlFormato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlFormato1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFechar)
                     .addComponent(btnGerar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        pnlFormato.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -305,7 +377,7 @@ public class View_Relatorio extends javax.swing.JFrame {
                         // Diretório onde fica os relatórios
                         File arquivo = new File(home + "/Desktop/Relatorios/");
                         // Define o Design do Relatório Jasper
-                        JasperDesign desenho = JRXmlLoader.load("src\\Relatorio\\EasyPark.jrxml");
+                        JasperDesign desenho = JRXmlLoader.load("src\\Relatorio\\EasyParkRelatorio.jrxml");
                         // Le o relatório Jasper
                         JasperReport relatorio = JasperCompileManager.compileReport(desenho);
                         // Cria um Jasper Data Source
@@ -316,7 +388,7 @@ public class View_Relatorio extends javax.swing.JFrame {
                         parametros.put("DataFim", FORMAT.format(jDateChooser2.getDate()));
                         parametros.put("Status", status);
                         // Cria o relatório
-                        JasperPrint impressao = JasperFillManager.fillReport( relatorio , parametros,  jrRS );
+                        JasperPrint impressao = JasperFillManager.fillReport( relatorio , parametros,  jrRS);
                         // Verifica se tem paginas o relatório !
                         if (!(impressao.getPages().isEmpty())) {
 
@@ -330,6 +402,7 @@ public class View_Relatorio extends javax.swing.JFrame {
                             }
                             // Pega quantos arquivos tem na pasta !
                             File Qlist[] = arquivo.listFiles();
+                            
                             // Relatório em PDF
                             if (jRadioButtonPDF.isSelected()){
                                 JasperExportManager.exportReportToPdfFile(impressao, arquivo.toString()+ "//Venda"+(Qlist.length+1)+".pdf");
@@ -349,6 +422,35 @@ public class View_Relatorio extends javax.swing.JFrame {
                             // Relatório em XML
                             else if (jRadioButtonXML.isSelected()){
                                 JasperExportManager.exportReportToXmlFile(impressao,  arquivo.toString()+ "//Venda"+(Qlist.length+1)+".xml", rootPaneCheckingEnabled);
+                            }
+                            // Relatório em RTF
+                            else if (jRadioButtonRTF.isSelected()){
+                                JRRtfExporter rtf = new JRRtfExporter();
+                                rtf.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
+                                rtf.setParameter(JRExporterParameter.JASPER_PRINT, impressao);
+                                rtf.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, arquivo.toString()+ "//Venda"+(Qlist.length+1)+".rtf");
+                                rtf.exportReport();
+                            }
+                            // Relatório em DOCX
+                            else if (jRadioButtonDOCX.isSelected()){
+                                JRDocxExporter exporter = new JRDocxExporter();
+                                exporter.setParameter(JRExporterParameter.JASPER_PRINT, impressao);
+                                exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, arquivo.toString()+ "//Venda"+(Qlist.length+1)+".docx");
+                                exporter.exportReport();
+                            }
+                            // Relatório em PPTX
+                            else if (jRadioButtonPPTX.isSelected()){
+                                JRPptxExporter exporter = new JRPptxExporter ();
+                                exporter.setParameter(JRExporterParameter.JASPER_PRINT, impressao);
+                                exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, arquivo.toString()+ "//Venda"+(Qlist.length+1)+".pptx");
+                                exporter.exportReport();
+                            }
+                            // Relatório em ODT
+                            else if (jRadioButtonODT.isSelected()){
+                                JROdtExporter exporter = new JROdtExporter();
+                                exporter.setParameter(JRExporterParameter.JASPER_PRINT, impressao);
+                                exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, arquivo.toString()+ "//Venda"+(Qlist.length+1)+".odt");
+                                exporter.exportReport();
                             }
                             Limpar();
                         }
@@ -384,12 +486,28 @@ public class View_Relatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtomEncerradaActionPerformed
 
     private void MudaStatus(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MudaStatus
-        status = "false";
+        status = "0";
     }//GEN-LAST:event_MudaStatus
 
     private void MudaStatus2(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MudaStatus2
-        status = "true";
+        status = "1";
     }//GEN-LAST:event_MudaStatus2
+
+    private void jRadioButtomEncerrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtomEncerrada1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtomEncerrada1ActionPerformed
+
+    private void jRadioButtomEncerrada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtomEncerrada2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtomEncerrada2ActionPerformed
+
+    private void MudaStatus3(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MudaStatus3
+        status = "2";
+    }//GEN-LAST:event_MudaStatus3
+
+    private void MudaStatus4(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MudaStatus4
+        status = "3";
+    }//GEN-LAST:event_MudaStatus4
 
  
     public static void main(String args[]) {
@@ -441,8 +559,14 @@ public class View_Relatorio extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JRadioButton jRadioButtomAberta;
     private javax.swing.JRadioButton jRadioButtomEncerrada;
+    private javax.swing.JRadioButton jRadioButtomEncerrada1;
+    private javax.swing.JRadioButton jRadioButtomEncerrada2;
+    private javax.swing.JRadioButton jRadioButtonDOCX;
     private javax.swing.JRadioButton jRadioButtonHTML;
+    private javax.swing.JRadioButton jRadioButtonODT;
     private javax.swing.JRadioButton jRadioButtonPDF;
+    private javax.swing.JRadioButton jRadioButtonPPTX;
+    private javax.swing.JRadioButton jRadioButtonRTF;
     private javax.swing.JRadioButton jRadioButtonXLS;
     private javax.swing.JRadioButton jRadioButtonXML;
     private javax.swing.JLabel lblNome;

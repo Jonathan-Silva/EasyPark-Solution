@@ -117,12 +117,20 @@ public static void Open(){
         return rs;
     }
 
-     public static ResultSet BuscaVendas(String dataInicio, String dataFim, String status) throws SQLException
+    public static ResultSet BuscaVendas(String dataInicio, String dataFim, String status) throws SQLException
     {
         ResultSet rs = null;
         Statement statement = conexao.createStatement();
-        String sqlstring = "SELECT ID, DHORA_INICIAL, DHORA_FINAL, ID_VAGA, ID_MOTORISTA, ID_VEICULO, STATUS, PRECO FROM  VENDA WHERE DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "'"+ "' AND '" + "STATUS = '" +status +"'";
+        String sqlstring = new String();
         
+        if (status.equals("3")){
+            sqlstring = "select * from Venda where DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "'";
+        
+        }
+        else{
+            sqlstring = "select * from Venda where DHORA_INICIAL BETWEEN '" + dataInicio + "' AND '" + dataFim + "' AND STATUS = '" + status + "'";
+        
+        }
         try {
             rs = statement.executeQuery(sqlstring);
         } catch (Exception e) {
