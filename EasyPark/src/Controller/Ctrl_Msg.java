@@ -27,7 +27,9 @@ public class Ctrl_Msg {
     public static String MsgRelatorioSemDados = "Não foi encontrado nenhuma venda com o status informado, dentre este intervalo de tempo!";
     public static String MsgDataInvalida = "Datas informadas inválidas por favor digite novamente";
     public static String MsgConcluirVenda = "Deseja concuir esse venda ? ";
-
+    public static String MsgVendaConcluida = "Venda concluida com sucesso. ";
+    public static String MsgVendaAnulada ="Venda anulada com sucesso. ";
+    public static String MsgVendaFinalizada ="Venda finalizada com sucesso. ";
 
      
     public static boolean  Questiona(String msg){

@@ -34,7 +34,6 @@ public class View_Menu extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jButton1 = new javax.swing.JButton();
         mbMenu = new javax.swing.JMenuBar();
         mnCadastros = new javax.swing.JMenu();
         mniCadCliente = new javax.swing.JMenuItem();
@@ -51,6 +50,8 @@ public class View_Menu extends javax.swing.JFrame {
         mniCancelamento = new javax.swing.JMenuItem();
         mnRelatorios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        mnRelatorios1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnSair = new javax.swing.JMenu();
         mniSair = new javax.swing.JMenuItem();
 
@@ -62,13 +63,6 @@ public class View_Menu extends javax.swing.JFrame {
         setTitle("Menu EasyPark");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(0, 0));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         mbMenu.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
 
@@ -222,6 +216,22 @@ public class View_Menu extends javax.swing.JFrame {
         mbMenu.add(mnRelatorios);
         mnRelatorios.getAccessibleContext().setAccessibleName("Relatorios");
 
+        mnRelatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/EasyRelatorio.png"))); // NOI18N
+        mnRelatorios1.setMnemonic('r');
+        mnRelatorios1.setText("Email");
+        mnRelatorios1.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/ordem2.png"))); // NOI18N
+        jMenuItem2.setText("Email");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        mnRelatorios1.add(jMenuItem2);
+
+        mbMenu.add(mnRelatorios1);
+
         mnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/EasySair.png"))); // NOI18N
         mnSair.setMnemonic('s');
         mnSair.setText("Sair");
@@ -249,17 +259,11 @@ public class View_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(391, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(299, 299, 299))
+            .addGap(0, 963, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         pack();
@@ -328,15 +332,15 @@ public class View_Menu extends javax.swing.JFrame {
         frmRelatorio.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void mniCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCancelamentoActionPerformed
         View_VendaFinalizar VendaFinalizar = new View_VendaFinalizar();
         VendaFinalizar.setVisible(true);
     }//GEN-LAST:event_mniCancelamentoActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        View_EnvioEmail Email = new View_EnvioEmail();
+        Email.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
    
     public static void main(String args[]) {
@@ -375,15 +379,16 @@ public class View_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar mbMenu;
     private javax.swing.JMenu mnCadastros;
     private javax.swing.JMenu mnConsultas;
     private javax.swing.JMenu mnControle;
     private javax.swing.JMenu mnRelatorios;
+    private javax.swing.JMenu mnRelatorios1;
     private javax.swing.JMenu mnSair;
     private javax.swing.JMenuItem mniCadCliente;
     private javax.swing.JMenuItem mniCadEstacionamento;

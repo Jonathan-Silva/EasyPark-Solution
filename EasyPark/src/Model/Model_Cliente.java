@@ -216,5 +216,36 @@ public class Model_Cliente {
         
         return ListaCliente;
     }
-    
+        public static List<Ctrl_Cliente> BuscaAll() throws SQLException{
+            
+          List<Ctrl_Cliente> ListaCliente = new ArrayList<Ctrl_Cliente>();
+          List<String> ListaIdPessoa = new ArrayList<String>();
+          
+          sqlString ="SELECT ID_PESSOA FROM CLIENTE";
+          
+          rs = Model_Banco.BuscaRegistro(sqlString);
+          while(rs.next())
+          {
+            String x = rs.getString(1);
+            ListaIdPessoa.add(x);
+          }
+            for (int i = 0; i < ListaIdPessoa.size(); i++) {
+              sqlString ="SELECT * FROM PESSOA WHERE ID= " + ListaIdPessoa.get(i);
+              rs = Model_Banco.BuscaRegistro(sqlString);
+                if (rs.next()) {
+                     Ctrl_Cliente Cliente = new Ctrl_Cliente();
+
+                    Cliente.setId(rs.getString(1));
+                    Cliente.setCpf(rs.getString(2));
+                    Cliente.setNome(rs.getString(3));
+                    Cliente.setFixo(rs.getString(4));
+                    Cliente.setCelular(rs.getString(5));
+                    Cliente.setEmail(rs.getString(6));
+                    
+                    ListaCliente.add(Cliente);
+                }
+            }
+          return ListaCliente;
+     }
+     
 }

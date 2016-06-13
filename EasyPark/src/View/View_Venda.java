@@ -509,8 +509,8 @@ public class View_Venda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFechar)
-                    .addComponent(btnConcluir)
-                    .addComponent(btnLimpar2))
+                    .addComponent(btnLimpar2)
+                    .addComponent(btnConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
 
@@ -611,6 +611,7 @@ public class View_Venda extends javax.swing.JFrame {
                 {
                     Ctrl_Impressora.ImprimirTexto(Venda, txtResponsavel.getText());
                     Limpar();
+                    Ctrl_Msg.Informa(Ctrl_Msg.MsgVendaConcluida);
                     
                 }
              } 

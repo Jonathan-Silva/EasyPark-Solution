@@ -5,7 +5,7 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
 public class Ctrl_Email {
-    public static void EnviarEmail(String msg, String destinatario) throws EmailException{
+    public static void EnviarEmail(String CorpoMsg, String destinatario, String Assunto) throws EmailException{
         String html = new  String();
         html = "\n" +
                 "	<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
@@ -80,7 +80,7 @@ public class Ctrl_Email {
                 "				<td width=\"100%\" height=\"100\">\n" +
                 "				<h1 style=\"background-color:#212A32; padding: 20px 25px 20px 25px; margin:0px 0px 0px 0px; font-style: normal;font-weight: normal;color: #F1ECEC; font-size: 20px;line-height: 20px;text-align: center; font-family:monospace; min-height: 15px; min-width: 250px\">\n" +
                 
-                 msg.replace("À", "&#192").replace("Á", "&#193").replace("Â", "&#194").replace("Ã", "&#195").replace("Ä", "&#196").replace("Å", "&#197").replace("Ç", "&#199").replace("È", "&#200").replace("É", "&#201").replace("Ê", "&#202").replace("Ë", "&#203").replace("Ì", "&#204").replace("Í", "&#205").replace("Î", "&#206").replace("Ï", "&#207").replace("Ñ", "&#209").replace("Ò", "&#210").replace("Ó", "&#211").replace("Ô", "&#212").replace("Õ", "&#213").replace("Ö", "&#214").replace("Ù", "&#217").replace("Ú", "&#218").replace("Û", "&#219").replace("Ü", "&#220").replace("Ý", "&#221").replace("à", "&#224").replace("á", "&#225").replace("â", "&#226").replace("ã", "&#227").replace("ä", "&#228").replace("å", "&#229").replace("ç", "&#231").replace("è", "&#232").replace("é", "&#233").replace("ê", "&#234").replace("ë", "&#235").replace("ì", "&#236").replace("í", "&#237").replace("î", "&#238").replace("ï", "&#239").replace("ñ", "&#241").replace("ò", "&#242").replace("ó", "&#243").replace("ô", "&#244").replace("õ", "&#245").replace("ö", "&#246").replace("ù", "&#249").replace("ú", "&#250").replace("û", "&#251").replace("ü", "&#252").replace("ý", "&#253").replace("ÿ", "&#255") +
+                 CorpoMsg.replace("À", "&#192").replace("Á", "&#193").replace("Â", "&#194").replace("Ã", "&#195").replace("Ä", "&#196").replace("Å", "&#197").replace("Ç", "&#199").replace("È", "&#200").replace("É", "&#201").replace("Ê", "&#202").replace("Ë", "&#203").replace("Ì", "&#204").replace("Í", "&#205").replace("Î", "&#206").replace("Ï", "&#207").replace("Ñ", "&#209").replace("Ò", "&#210").replace("Ó", "&#211").replace("Ô", "&#212").replace("Õ", "&#213").replace("Ö", "&#214").replace("Ù", "&#217").replace("Ú", "&#218").replace("Û", "&#219").replace("Ü", "&#220").replace("Ý", "&#221").replace("à", "&#224").replace("á", "&#225").replace("â", "&#226").replace("ã", "&#227").replace("ä", "&#228").replace("å", "&#229").replace("ç", "&#231").replace("è", "&#232").replace("é", "&#233").replace("ê", "&#234").replace("ë", "&#235").replace("ì", "&#236").replace("í", "&#237").replace("î", "&#238").replace("ï", "&#239").replace("ñ", "&#241").replace("ò", "&#242").replace("ó", "&#243").replace("ô", "&#244").replace("õ", "&#245").replace("ö", "&#246").replace("ù", "&#249").replace("ú", "&#250").replace("û", "&#251").replace("ü", "&#252").replace("ý", "&#253").replace("ÿ", "&#255") +
                 "				</h1>\n" +
                 "				</td>\n" +
                 "			</tr>\n" +
@@ -109,10 +109,10 @@ public class Ctrl_Email {
                 "  </table>\n" +
                 "  </body>\n" +
                 "</html>";
-    classEnviarEmail(html ,destinatario);
+    Enviar(html ,destinatario, Assunto);
     }
 
-    public static void classEnviarEmail(String html, String destinatario) throws EmailException{
+    private static void Enviar(String html, String destinatario, String Assunto) throws EmailException{
         HtmlEmail email= new HtmlEmail();
         email.setSmtpPort(587);
         email.setHostName("smtp.live.com");
@@ -120,7 +120,7 @@ public class Ctrl_Email {
         email.setStartTLSEnabled(true);
         email.setDebug(true);
         email.setFrom("easypark62@hotmail.com");
-        email.setSubject("EasyPark");
+        email.setSubject("EasyPark - " + Assunto);
         email.setHtmlMsg(html);
         email.addTo(destinatario);
         email.send();

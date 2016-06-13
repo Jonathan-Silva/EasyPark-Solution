@@ -7,6 +7,7 @@ package View;
 
 import Controller.Ctrl_Autorizado;
 import Controller.Ctrl_Cliente;
+import Controller.Ctrl_Impressora;
 import Controller.Ctrl_Msg;
 import Controller.Ctrl_Util;
 import Controller.Ctrl_Venda;
@@ -267,10 +268,14 @@ public class View_VendaFinalizar extends javax.swing.JFrame {
        int l = dtgConVenda.getSelectedRow();
        String  venda = (String) dtgConVenda.getValueAt(l,0);
        String  vaga = (String) dtgConVenda.getValueAt(l,1);
+       String  Pessoa = (String) dtgConVenda.getValueAt(l,3);
+     
        
         try {
             Model_Venda.SetStatusVenda(venda , "0");
             Model_Vaga.SetStatusVaga(vaga , "0");
+            Ctrl_Msg.Informa(Ctrl_Msg.MsgVendaFinalizada);
+            Ctrl_Impressora.ImprimirFinaliar(venda, venda);
             
         } catch (SQLException ex) {
           
@@ -289,6 +294,7 @@ public class View_VendaFinalizar extends javax.swing.JFrame {
         try {
             Model_Venda.SetStatusVenda(venda , "2");
             Model_Vaga.SetStatusVaga(vaga , "0");
+            Ctrl_Msg.Informa(Ctrl_Msg.MsgVendaAnulada);
             
         } catch (SQLException ex) {
           
