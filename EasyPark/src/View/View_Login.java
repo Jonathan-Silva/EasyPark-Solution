@@ -7,6 +7,10 @@ package View;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import View.View_VendaFinalizar;
+        
+        
+        
 
 /**
  *
@@ -53,6 +57,11 @@ public class View_Login extends javax.swing.JFrame {
 
         btnEntrar.setText("Entrar");
         btnEntrar.setToolTipText("Clique para entrar no sistema");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +100,13 @@ public class View_Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+       View_Splash splash = new View_Splash();
+       splash.setVisible(true);
+       this.dispose();
+   
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments

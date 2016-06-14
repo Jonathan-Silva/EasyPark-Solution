@@ -13,15 +13,37 @@ public class Model_Cliente {
 
     private static ResultSet rs = null;
     private static String sqlString;
-    public static void Atualizar()
+    public static String Atualizar(Ctrl_Cliente Cliente, String IdPessoa) throws SQLException
     {
+        String X = null;
+        Ctrl_Pessoa Pessoa = new Ctrl_Pessoa();
+        Pessoa.setId(IdPessoa);
+        Pessoa.setCpf(Cliente.getCpf());
+        Pessoa.setCelular(Cliente.getCelular());
+        Pessoa.setFixo(Cliente.getFixo());
+        Pessoa.setNome(Cliente.getNome());
+        Pessoa.setEmail(Cliente.getEmail());
+        Pessoa.setCep(Cliente.getCep());
+        Pessoa.setNumero(Cliente.getNumero());
+        Pessoa.setTipo("C");
+        
+        sqlString ="UPDATE CLIENTE SET CNH = '"+Cliente.getCnh()+"', ID_PESSOA = "+Cliente.getIdPessoa() + " where (ID =" +Cliente.getId()+")";
+        
+         boolean r = Model_Banco.Salvar(sqlString);
+         if (r==true) 
+         {
+            r = false;
+           X = Model_Pessoa.Atualizar(Pessoa);
+         }
+         
+         return X;
         
     }
     
     public static String Salvar(Ctrl_Cliente Cliente) throws SQLException 
-    {
-            
+    {           
         Ctrl_Pessoa Pessoa = new Ctrl_Pessoa();
+        
         Pessoa.setCpf(Cliente.getCpf());
         Pessoa.setCelular(Cliente.getCelular());
         Pessoa.setFixo(Cliente.getFixo());
@@ -30,9 +52,8 @@ public class Model_Cliente {
         Pessoa.setCep(Cliente.getCep());
         Pessoa.setNumero(Cliente.getNumero());
         Pessoa.setTipo(Cliente.getTipo());
-        
-        Cliente.setIdPessoa(Model_Pessoa.Salvar(Pessoa,"PESSOA"));
       
+        Cliente.setIdPessoa(Model_Pessoa.Salvar(Pessoa,"PESSOA"));  
         
         sqlString = "insert into CLIENTE (CNH, ID_PESSOA) values ('" 
                 +Cliente.getCnh()+ "','"
@@ -43,10 +64,8 @@ public class Model_Cliente {
         if (r==true) 
         {
             CodAtualCliente = Model_Banco.BuscaCodigoNovo("CLIENTE");
-        }
-        
-        return CodAtualCliente;
-        
+        }    
+        return CodAtualCliente;     
     }
     
     public static Boolean Deletar(String Cod)

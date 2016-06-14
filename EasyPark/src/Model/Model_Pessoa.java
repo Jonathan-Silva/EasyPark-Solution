@@ -8,17 +8,28 @@ import java.sql.SQLException;
 public class Model_Pessoa {   
 
     public static String sqlString=""; 
-    public static Boolean Atualizar()
+    public static String Atualizar( Ctrl_Pessoa Pessoa)
     {
+        String CodAtualPessoa = null;
         try 
         {
-            
+            sqlString = "UPDATE PESSOA SET CPF ='"+Pessoa.getCpf()
+                            + "', NOME ='" + Pessoa.getNome()
+                            + "', TELEFONE ='" + Pessoa.getFixo()
+                            + "', CELULAR ='" + Pessoa.getCelular()
+                            + "', EMAIL ='" + Pessoa.getEmail()
+                            + "', NUMERO =" + Pessoa.getNumero()
+                            + ", CEP ='" + Pessoa.getCep()
+                            + "', TIPO ='" +Pessoa.getTipo()+"' WHERE (ID = "+ Pessoa.getId() +")";
+        boolean r = Model_Banco.Salvar(sqlString);
+        CodAtualPessoa =  Model_Banco.BuscaCodigo("PESSOA");
         } 
+        
         catch (Exception e) 
         {
-            return false;
+            return CodAtualPessoa;
         }
-        return true;
+        return CodAtualPessoa;
     }
     
     public static String Salvar(Ctrl_Pessoa Pessoa, String Tabela) throws SQLException 

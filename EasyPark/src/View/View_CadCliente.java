@@ -648,10 +648,18 @@ public class View_CadCliente extends javax.swing.JFrame {
                 try 
                 {   
                     Atribuir(true);
-                    String CodNew =  Model_Cliente.Salvar(Cliente);
-                    Limpar();
-                    txtCod.setText(CodNew);
-                    Ctrl_Msg.Informa(Ctrl_Msg.MsgISalvo);
+                    if (EstaEditando==true) {
+                        String X = Model_Cliente.Atualizar(Cliente, Pessoa.getId());
+                        Limpar();
+                        txtCod.setText(X);
+                        Ctrl_Msg.Informa(Ctrl_Msg.MsgISalvo);
+                    }
+                    else{
+                        String CodNew =  Model_Cliente.Salvar(Cliente);
+                        Limpar();
+                        txtCod.setText(CodNew);
+                        Ctrl_Msg.Informa(Ctrl_Msg.MsgISalvo);
+                    }
                 } 
                 catch (Exception e) 
                 {
@@ -848,6 +856,7 @@ public class View_CadCliente extends javax.swing.JFrame {
             Cliente.setCep(txtCEP.getText());
             Cliente.setNumero(String.valueOf(nmrNumero.getValue()));
             Cliente.setTipo("C");
+            Cliente.setIdPessoa(Pessoa.getId());
         }
         else
         {

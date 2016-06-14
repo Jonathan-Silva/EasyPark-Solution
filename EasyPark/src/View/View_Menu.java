@@ -34,6 +34,9 @@ public class View_Menu extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        btnPesqCod = new javax.swing.JButton();
+        btnPesqCod1 = new javax.swing.JButton();
+        btnPesqCod2 = new javax.swing.JButton();
         mbMenu = new javax.swing.JMenuBar();
         mnCadastros = new javax.swing.JMenu();
         mniCadCliente = new javax.swing.JMenuItem();
@@ -63,6 +66,90 @@ public class View_Menu extends javax.swing.JFrame {
         setTitle("Menu EasyPark");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(0, 0));
+
+        btnPesqCod.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnPesqCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/btnCadCli.png"))); // NOI18N
+        btnPesqCod.setToolTipText("Clique aqui para cadastrar um cliente");
+        btnPesqCod.setBorderPainted(false
+        );
+        btnPesqCod.setContentAreaFilled(false);
+        btnPesqCod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesqCod.setDefaultCapable(false);
+        btnPesqCod.setFocusPainted(false);
+        btnPesqCod.setFocusable(false);
+        btnPesqCod.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnPesqCod.setMaximumSize(new java.awt.Dimension(38, 44));
+        btnPesqCod.setPreferredSize(new java.awt.Dimension(38, 44));
+        btnPesqCod.setVerifyInputWhenFocusTarget(false);
+        btnPesqCod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPesqCodMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPesqCodMouseExited(evt);
+            }
+        });
+        btnPesqCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqCodActionPerformed(evt);
+            }
+        });
+
+        btnPesqCod1.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnPesqCod1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/btnVenda.png"))); // NOI18N
+        btnPesqCod1.setToolTipText("Clique aqui para iniciar uma venda");
+        btnPesqCod1.setBorderPainted(false
+        );
+        btnPesqCod1.setContentAreaFilled(false);
+        btnPesqCod1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesqCod1.setDefaultCapable(false);
+        btnPesqCod1.setFocusPainted(false);
+        btnPesqCod1.setFocusable(false);
+        btnPesqCod1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnPesqCod1.setMaximumSize(new java.awt.Dimension(38, 44));
+        btnPesqCod1.setPreferredSize(new java.awt.Dimension(38, 44));
+        btnPesqCod1.setVerifyInputWhenFocusTarget(false);
+        btnPesqCod1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPesqCod1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPesqCod1MouseExited(evt);
+            }
+        });
+        btnPesqCod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqCod1ActionPerformed(evt);
+            }
+        });
+
+        btnPesqCod2.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnPesqCod2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/btnFinVenda.png"))); // NOI18N
+        btnPesqCod2.setToolTipText("Clique aqui para encerrar uma venda");
+        btnPesqCod2.setBorderPainted(false
+        );
+        btnPesqCod2.setContentAreaFilled(false);
+        btnPesqCod2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesqCod2.setDefaultCapable(false);
+        btnPesqCod2.setFocusPainted(false);
+        btnPesqCod2.setFocusable(false);
+        btnPesqCod2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnPesqCod2.setMaximumSize(new java.awt.Dimension(38, 44));
+        btnPesqCod2.setPreferredSize(new java.awt.Dimension(38, 44));
+        btnPesqCod2.setVerifyInputWhenFocusTarget(false);
+        btnPesqCod2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPesqCod2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPesqCod2MouseExited(evt);
+            }
+        });
+        btnPesqCod2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqCod2ActionPerformed(evt);
+            }
+        });
 
         mbMenu.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
 
@@ -199,7 +286,7 @@ public class View_Menu extends javax.swing.JFrame {
 
         mbMenu.add(mnControle);
 
-        mnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/EasyRelatorio.png"))); // NOI18N
+        mnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/ordem2.png"))); // NOI18N
         mnRelatorios.setMnemonic('r');
         mnRelatorios.setText("Relatórios");
         mnRelatorios.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
@@ -216,12 +303,12 @@ public class View_Menu extends javax.swing.JFrame {
         mbMenu.add(mnRelatorios);
         mnRelatorios.getAccessibleContext().setAccessibleName("Relatorios");
 
-        mnRelatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/EasyRelatorio.png"))); // NOI18N
+        mnRelatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/Status-mail-unread-new-icon1.png"))); // NOI18N
         mnRelatorios1.setMnemonic('r');
         mnRelatorios1.setText("Email");
         mnRelatorios1.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/ordem2.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/img/Status-mail-unread-new-icon1.png"))); // NOI18N
         jMenuItem2.setText("Email");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,11 +346,24 @@ public class View_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPesqCod, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesqCod1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesqCod2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(736, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnPesqCod, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btnPesqCod1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnPesqCod2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -342,6 +442,45 @@ public class View_Menu extends javax.swing.JFrame {
         Email.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void btnPesqCodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCodMouseEntered
+
+    }//GEN-LAST:event_btnPesqCodMouseEntered
+
+    private void btnPesqCodMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCodMouseExited
+
+    }//GEN-LAST:event_btnPesqCodMouseExited
+
+    private void btnPesqCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCodActionPerformed
+         View_CadCliente frmCadCliente = new View_CadCliente();
+        frmCadCliente.setVisible(true);
+    }//GEN-LAST:event_btnPesqCodActionPerformed
+
+    private void btnPesqCod1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCod1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCod1MouseEntered
+
+    private void btnPesqCod1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCod1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCod1MouseExited
+
+    private void btnPesqCod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCod1ActionPerformed
+        View_Venda frmVenda = new View_Venda();
+        frmVenda.setVisible(true);
+    }//GEN-LAST:event_btnPesqCod1ActionPerformed
+
+    private void btnPesqCod2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCod2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCod2MouseEntered
+
+    private void btnPesqCod2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesqCod2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCod2MouseExited
+
+    private void btnPesqCod2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCod2ActionPerformed
+        View_VendaFinalizar VendaFinalizar = new View_VendaFinalizar();
+        VendaFinalizar.setVisible(true);
+    }//GEN-LAST:event_btnPesqCod2ActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -379,6 +518,9 @@ public class View_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPesqCod;
+    private javax.swing.JButton btnPesqCod1;
+    private javax.swing.JButton btnPesqCod2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
